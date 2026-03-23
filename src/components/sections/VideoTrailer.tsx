@@ -1,8 +1,17 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { FaPlay, FaAmazon } from 'react-icons/fa'
-import { SiApple } from 'react-icons/si'
-import { BsBookFill } from 'react-icons/bs'
+import { FaPlay } from 'react-icons/fa'
+
+const baseLogos = [
+  { src: '/images/Amazon.png', alt: 'Amazon' },
+  { src: '/images/ingramSpark.png', alt: 'IngramSpark' },
+  { src: '/images/barnes_logo.jpg', alt: 'Barnes & Noble' },
+  { src: '/images/kobo_logo.jpg', alt: 'Kobo' },
+  { src: '/images/AppleBooks.png', alt: 'Apple Books' },
+]
+
+// Triple duplicate for perfectly seamless infinite loop
+const logos = [...baseLogos, ...baseLogos, ...baseLogos]
 
 export default function VideoTrailer() {
   const ref = useRef<HTMLDivElement>(null)
@@ -29,7 +38,6 @@ export default function VideoTrailer() {
         </svg>
       </div>
 
-      {/* Removed the duplicate ref={ref} from this div */}
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <p className="reveal font-body font-bold text-violet-600 text-sm uppercase tracking-widest mb-2">Watch Now</p>
         <h2 className="reveal font-display font-bold text-3xl md:text-4xl text-gray-900 mb-3">Video Trailer</h2>
@@ -39,60 +47,113 @@ export default function VideoTrailer() {
         </p>
 
         {/* Video player */}
-        <div className="reveal relative rounded-2xl overflow-hidden cursor-pointer group"
+        <div
+          className="reveal relative rounded-2xl overflow-hidden cursor-pointer group"
           style={{
-            background: 'linear-gradient(135deg, #e8e4ff, #f0ebff)',
             border: '2px solid rgba(107,93,211,0.15)',
             boxShadow: '0 20px 60px rgba(107,93,211,0.15)',
             aspectRatio: '16/9',
           }}
-          onClick={() => setPlaying(!playing)}>
-
-          {/* Placeholder video bg */}
-          <div className="absolute inset-0 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #1a1a4e 0%, #2d2880 40%, #6b5dd3 100%)' }}>
+          onClick={() => setPlaying(!playing)}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(135deg, #1a1a4e 0%, #2d2880 40%, #6b5dd3 100%)' }}
+          >
             {[...Array(30)].map((_, i) => (
               <div key={i} className="absolute rounded-full"
                 style={{
-                  width: Math.random() * 4 + 1 + 'px', height: Math.random() * 4 + 1 + 'px',
-                  left: Math.random() * 100 + '%', top: Math.random() * 100 + '%',
-                  background: 'white', opacity: Math.random() * 0.5 + 0.1,
+                  width: Math.random() * 4 + 1 + 'px',
+                  height: Math.random() * 4 + 1 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  background: 'white',
+                  opacity: Math.random() * 0.5 + 0.1,
                 }} />
             ))}
           </div>
-
-          {/* Play button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+            <div
+              className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
               style={{
                 background: 'rgba(255,255,255,0.95)',
                 boxShadow: '0 0 0 8px rgba(255,255,255,0.25)',
-              }}>
+              }}
+            >
               <FaPlay className="text-violet-700 text-2xl ml-1" />
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Retailer logos */}
-        <div className="reveal mt-14 flex flex-wrap items-center justify-center gap-10">
-          {[
-            { label: 'Amazon', icon: <FaAmazon className="text-3xl text-gray-500" /> }, // <--- Use FaAmazon
-            { label: 'IngramSpark', icon: <BsBookFill className="text-3xl text-gray-500" /> },
-            { label: 'Barnes & Noble', icon: <BsBookFill className="text-3xl text-gray-500" /> }, // Fallback
-            { label: 'Kobo', icon: <span className="font-display font-black text-xl text-gray-500">kobo</span> },
-            { label: 'Apple Books', icon: <SiApple className="text-3xl text-gray-500" /> },
-          ].map(r => (
-            <div key={r.label}
-              className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-              {r.icon}
-              <span className="font-body font-bold text-sm text-gray-500">{r.label}</span>
+      {/* ── Infinite scrolling logos ── */}
+      <div className="reveal mt-14 relative" style={{ overflow: 'hidden', padding: '1rem 0' }}>
+
+        {/* Left fade */}
+        <div style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: '100px', zIndex: 2,
+          background: 'linear-gradient(to right, white 0%, transparent 100%)',
+          pointerEvents: 'none',
+        }} />
+        {/* Right fade */}
+        <div style={{
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: '100px', zIndex: 2,
+          background: 'linear-gradient(to left, white 0%, transparent 100%)',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Track — moves left continuously, resets every 1/3 (one full set) */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5rem',
+            width: 'max-content',
+            animation: 'logoScroll 22s linear infinite',
+          }}
+        >
+          {logos.map((logo, i) => (
+            <div
+              key={i}
+              style={{
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                opacity: 0.7,
+                transition: 'opacity 0.3s ease, transform 0.3s ease',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLElement
+                el.style.opacity = '1'
+                el.style.transform = 'scale(1.1)'
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLElement
+                el.style.opacity = '0.7'
+                el.style.transform = 'scale(1)'
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{
+                  height: '48px',
+                  width: 'auto',
+                  maxWidth: '160px',
+                  objectFit: 'contain',
+                  display: 'block',
+                }}
+              />
             </div>
           ))}
         </div>
       </div>
 
       {/* Wave bottom */}
-      <div className="wave-bottom">
+      <div className="wave-bottom" style={{ marginTop: '2rem' }}>
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: '80px' }}>
           <path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,60 1440,40 L1440,80 L0,80 Z" fill="#0d0d2b" />
         </svg>

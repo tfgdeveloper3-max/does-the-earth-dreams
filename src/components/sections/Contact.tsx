@@ -56,7 +56,7 @@ export default function Contact() {
           <div className="lg:col-span-2 flex flex-col gap-4">
             <div className="reveal rounded-2xl p-6"
               style={{ background: 'linear-gradient(135deg, #6b5dd3, #c084b0)', boxShadow: '0 10px 40px rgba(107,93,211,0.3)' }}>
-              <h3 className="font-display font-bold text-xl text-white mb-2">Say Hello 👋</h3>
+              <h3 className="font-display font-bold text-xl text-white mb-2">Say Hello</h3>
               <p className="font-body text-sm leading-relaxed text-white/80">
                 Whether you're a bookseller, educator, parent, or just a fan — we'd love to hear from you!
               </p>
