@@ -33,7 +33,7 @@ export default function Hero() {
         overflow: 'hidden',
         paddingTop: '5rem',
         paddingBottom: '0',
-        background: 'linear-gradient(160deg, #0d0d2b 0%, #13133a 50%, #1e1e5a 100%)',
+        background: 'transparent',
       }}
     >
 
@@ -47,11 +47,16 @@ export default function Hero() {
       <BsStarFill className="deco-star text-yellow-300 text-base" style={{ top: '45%', left: '50%', animationDelay: '1.2s' }} />
       <BsStarFill className="deco-star text-yellow-200 text-xs" style={{ bottom: '15%', left: '55%', animationDelay: '0.4s' }} />
 
+      {/* AboutBook-style background stars */}
+      <BsStarFill className="deco-star text-yellow-300 text-xl" style={{ top: '10%', right: '10%', animationDelay: '0.5s' }} />
+      <GiFeather className="deco-star text-purple-300 text-3xl" style={{ top: '20%', left: '5%', animationDelay: '1s' }} />
+      <BsStarFill className="deco-star text-pink-300 text-sm" style={{ bottom: '20%', left: '12%', animationDelay: '1.5s' }} />
+
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', width: '100%', position: 'relative', zIndex: 10 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'flex-end' }}>
 
           {/* Left: Text */}
-          <div ref={ref}>
+          <div ref={ref} style={{ paddingBottom: '4rem' }}>
             <div
               className="reveal"
               style={{
@@ -125,8 +130,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Book Cover — tall, overflows bottom */}
-          <div style={{ position: 'relative', zIndex: 10, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '100%' }}>
+          {/* Right: Book Cover */}
+          <div style={{
+            position: 'relative',
+            zIndex: 10,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+          }}>
 
             {/* Glow blob */}
             <div style={{
@@ -174,13 +185,15 @@ export default function Hero() {
                 filter: 'drop-shadow(20px 20px 50px rgba(0,0,0,0.75)) drop-shadow(0 0 70px rgba(107,93,211,0.45))',
                 position: 'relative',
                 zIndex: 10,
+                display: 'flex',
+                justifyContent: 'center',
               }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/book-cover.png"
                   alt="Does the Earth Dream?"
                   style={{
-                    height: '720px',
+                    height: '95vh',
                     width: 'auto',
                     display: 'block',
                     objectFit: 'contain',

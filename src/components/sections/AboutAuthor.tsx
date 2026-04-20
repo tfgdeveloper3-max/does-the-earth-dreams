@@ -25,7 +25,7 @@ export default function AboutAuthor() {
       {/* Wave top */}
       <div className="wave-top">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: '80px' }}>
-          <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
+          <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,20 1440,40 L1440,80 L0,80 Z" fill="white" />
         </svg>
       </div>
 
@@ -47,17 +47,15 @@ export default function AboutAuthor() {
               {/* Main circle */}
               <div className="w-56 h-56 rounded-full overflow-hidden flex items-center justify-center"
                 style={{
-                  background: 'linear-gradient(135deg, #e8e4ff, #d4a0c8)',
                   boxShadow: '0 0 50px rgba(107,93,211,0.25), 0 20px 60px rgba(0,0,0,0.1)',
                   border: '4px solid white',
                 }}>
-                {/* Author placeholder with icon */}
-                <div className="w-full h-full flex items-center justify-center"
-                  style={{ background: 'linear-gradient(135deg, #2d2880, #6b5dd3, #c084b0)' }}>
-                  <span className="font-display font-black text-7xl text-white opacity-80">TS</span>
-                </div>
+                <img
+                  src="/images/Tim-Star.jpg"
+                  alt="Tim Star"
+                  className="w-full h-full object-cover"
+                />
               </div>
-
               {/* Floating deco items around avatar */}
               <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full flex items-center justify-center"
                 style={{ background: 'linear-gradient(135deg, #ffd166, #ff9f1c)', boxShadow: '0 4px 15px rgba(255,209,102,0.5)' }}>
@@ -83,14 +81,9 @@ export default function AboutAuthor() {
             </h2>
 
             <p className="reveal font-body text-gray-600 text-base leading-relaxed mb-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-              specimen book. It has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was popularised in
-              the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-              and more recently with desktop publishing software like Aldus PageMaker
-              including versions of Lorem Ipsum.
+              Not in 2024 or at any time in the past 71 years did Tim Star ever think of writing a book (much less a children’s book.) People thought of him as a contractor or maybe an architect but certainly not a writer. Some, who knew him longer, remember that he owned record stores in Hawaii or that he was kind of a serial entrepreneur…..starting a new business every few years (some of them even successful). But children’s books? Does he even read children’s books? Yes he does, apparently. <br />
+              So now, to let the readers in on a secret only his dearest friends know…..Tim is kind of a softy at heart and this Does The Earth Dream book was obviously written for his own inner child. And maybe, just maybe, some other children, masquerading as adults, will enjoy sharing it with their grandkids too!
+              One last thing……Tim is really good at interpreting dreams.
             </p>
 
             <a href="#contact" className="reveal inline-flex items-center gap-2 font-body font-bold text-base px-7 py-3 rounded-full transition-all duration-300 hover:-translate-y-1"
@@ -108,7 +101,7 @@ export default function AboutAuthor() {
       {/* Wave bottom */}
       <div className="wave-bottom">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: '80px' }}>
-          <path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,60 1440,40 L1440,80 L0,80 Z" fill="#0d0d2b"/>
+          <path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,60 1440,40 L1440,80 L0,80 Z" fill="#0d0d2b" />
         </svg>
       </div>
     </section>

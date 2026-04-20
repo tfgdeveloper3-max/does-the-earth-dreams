@@ -14,7 +14,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="relative z-10"
-      style={{ background: 'linear-gradient(180deg, #0d0d2b, #13133a)' }}>
+      style={{ background: 'transparent' }}>
 
       {/* Top glow line */}
       <div className="absolute top-0 left-0 right-0 h-px"
