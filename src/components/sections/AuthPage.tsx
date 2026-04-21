@@ -13,7 +13,6 @@ export default function AuthPage() {
     const [shoots, setShoots] = useState<Shoot[]>([])
     const [mounted, setMounted] = useState(false)
 
-    /* All random values generated ONLY on client after mount */
     useEffect(() => {
         setMounted(true)
 
@@ -53,7 +52,6 @@ export default function AuthPage() {
                 background: 'linear-gradient(160deg,#04040f 0%,#08081e 40%,#0c0c2a 70%,#0f0f38 100%)',
             }}>
 
-                {/* Stars — only rendered after mount to avoid hydration mismatch */}
                 {mounted && stars.map(s => (
                     <div key={s.id} style={{
                         position: 'absolute', left: s.left, top: s.top,
@@ -63,7 +61,6 @@ export default function AuthPage() {
                     }} />
                 ))}
 
-                {/* Shooting stars */}
                 {mounted && shoots.map(s => (
                     <div key={s.id} style={{
                         position: 'absolute', top: s.top, left: s.left,
@@ -99,71 +96,69 @@ export default function AuthPage() {
                 }}>
                     {/* Orbit ring */}
                     <div style={{
-                        position: 'absolute', width: '360px', height: '120px',
+                        position: 'absolute', width: '420px', height: '140px',
                         borderRadius: '50%', border: '1px dashed rgba(155,143,232,0.18)',
                         pointerEvents: 'none',
                     }} />
 
-                    {/* Earth */}
+                    {/* ── Earth — completely static ── */}
                     <div style={{
-                        width: '200px', height: '200px', borderRadius: '50%', overflow: 'hidden',
+                        width: '320px', height: '320px', borderRadius: '50%', overflow: 'hidden',
                         flexShrink: 0, position: 'relative', zIndex: 2,
-                        boxShadow: `
-              0 0 0 3px rgba(100,180,255,0.15),
-              0 0 40px rgba(60,120,255,0.25),
-              0 0 80px rgba(40,80,200,0.12),
-              inset -40px 0 60px rgba(0,5,25,0.75)
-            `,
+                    
                     }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/Earth.png" alt="Earth" style={{
-                            width: '130%', height: '100%', objectFit: 'cover',
-                            objectPosition: 'center center', display: 'block',
-                            animation: 'earthSlide 40s linear infinite',
-                        }} />
+                        <img
+                            src="/images/Earth.png"
+                            alt="Earth"
+                            style={{
+                                width: '100%', height: '100%',
+                                objectFit: 'cover', display: 'block',
+                            }}
+                        />
                         {/* Night shadow */}
                         <div style={{
                             position: 'absolute', inset: 0, borderRadius: '50%',
                             background: 'radial-gradient(ellipse at 70% 55%,rgba(0,5,25,0) 25%,rgba(0,5,25,0.55) 60%,rgba(0,5,25,0.85) 85%)',
                             pointerEvents: 'none',
                         }} />
-                        {/* Atm rim */}
+                        {/* Atmospheric rim */}
                         <div style={{
                             position: 'absolute', inset: '-3px', borderRadius: '50%',
-                            background: 'transparent',
                             boxShadow: 'inset 0 0 18px 6px rgba(80,160,255,0.25)',
                             pointerEvents: 'none',
                         }} />
                     </div>
 
-                    {/* Moon orbit wrapper */}
+                    {/* ── Moon orbit wrapper */}
                     <div style={{
-                        position: 'absolute', width: '360px', height: '120px',
-                        animation: 'moonOrbit 12s linear infinite',
+                        position: 'absolute', width: '420px', height: '140px',
+                        animation: 'moonOrbit 50s linear infinite',
                         transformOrigin: 'center center',
                     }}>
                         {/* Moon */}
                         <div style={{
-                            position: 'absolute', right: '-28px', top: '50%',
-                            transform: 'translateY(-50%)',
-                            width: '56px', height: '56px', borderRadius: '50%', overflow: 'hidden',
-                            animation: 'moonCounter 12s linear infinite',
-                            boxShadow: `
-                0 0 16px rgba(200,190,170,0.18),
-                inset -12px 0 20px rgba(0,0,10,0.70)
-              `,
+                            position: 'absolute', right: '-40px', top: '50%',
+                            width: '80px', height: '80px', overflow: 'hidden',
+                            animation: 'moonCounter 32s linear infinite',
+                            
                         }}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="/images/Moon.png" alt="Moon" style={{
-                                width: '100%', height: '100%', objectFit: 'cover', display: 'block',
-                                filter: 'brightness(0.88) contrast(1.05)',
-                            }} />
+                            <img
+                                src="/images/Moon.png"
+                                alt="Moon"
+                                style={{
+                                    width: '100%', height: '100%',
+                                    objectFit: 'cover', display: 'block',
+                                    filter: 'brightness(0.88) contrast(1.05)',
+                                }}
+                            />
                             {/* Moon shadow */}
-                            <div style={{
+                            {/* <div style={{
                                 position: 'absolute', inset: 0, borderRadius: '50%',
                                 background: 'radial-gradient(ellipse at 68% 52%,rgba(0,0,10,0) 20%,rgba(0,0,10,0.52) 58%,rgba(0,0,10,0.82) 85%)',
                                 pointerEvents: 'none',
-                            }} />
+                            }} /> */}
                         </div>
                     </div>
 
@@ -212,7 +207,6 @@ export default function AuthPage() {
                         {mode === 'login' ? 'SIGN IN' : 'SIGN UP'}
                     </h1>
 
-                    {/* Tab */}
                     <div style={{ display: 'flex', background: 'rgba(255,255,255,0.04)', borderRadius: '9999px', padding: '3px', marginBottom: '1.6rem', border: '1px solid rgba(255,255,255,0.07)' }}>
                         {(['login', 'signup'] as const).map(t => (
                             <button key={t} onClick={() => setMode(t)} style={{
@@ -290,23 +284,24 @@ export default function AuthPage() {
           8%{opacity:1}
           100%{opacity:0;transform:rotate(var(--a,20deg)) translateX(220px)}
         }
-        @keyframes earthSlide {
-          0%  {transform:translateX(0%)}
-          100%{transform:translateX(-23%)}
-        }
+
+        /* Moon orbits Earth horizontally along an ellipse */
         @keyframes moonOrbit {
-          from{transform:rotate(0deg)}
-          to  {transform:rotate(360deg)}
+          from{ transform: rotate(0deg) }
+          to  { transform: rotate(360deg) }
         }
+        /* Counter-rotate so Moon image stays upright */
         @keyframes moonCounter {
-          0%  {transform:translateY(-50%) rotate(0deg)}
-          100%{transform:translateY(-50%) rotate(-360deg)}
+          0%  { transform: translateY(-50%) rotate(0deg) }
+          100%{ transform: translateY(-50%) rotate(-360deg) }
         }
-        @keyframes sparkle0{0%,100%{transform:translate(130px,-30px);opacity:.8}50%{transform:translate(125px,-35px);opacity:.2}}
-        @keyframes sparkle1{0%,100%{transform:translate(-135px,20px);opacity:.7}50%{transform:translate(-130px,25px);opacity:.2}}
-        @keyframes sparkle2{0%,100%{transform:translate(80px,110px);opacity:.9}50%{transform:translate(85px,105px);opacity:.2}}
-        @keyframes sparkle3{0%,100%{transform:translate(-70px,-110px);opacity:.6}50%{transform:translate(-75px,-105px);opacity:.2}}
-        @keyframes sparkle4{0%,100%{transform:translate(20px,-130px);opacity:.8}50%{transform:translate(15px,-125px);opacity:.2}}
+
+        @keyframes sparkle0{0%,100%{transform:translate(170px,-40px);opacity:.8}50%{transform:translate(165px,-45px);opacity:.2}}
+        @keyframes sparkle1{0%,100%{transform:translate(-175px,25px);opacity:.7}50%{transform:translate(-170px,30px);opacity:.2}}
+        @keyframes sparkle2{0%,100%{transform:translate(100px,135px);opacity:.9}50%{transform:translate(105px,130px);opacity:.2}}
+        @keyframes sparkle3{0%,100%{transform:translate(-90px,-135px);opacity:.6}50%{transform:translate(-95px,-130px);opacity:.2}}
+        @keyframes sparkle4{0%,100%{transform:translate(25px,-155px);opacity:.8}50%{transform:translate(20px,-150px);opacity:.2}}
+
         input::placeholder{color:rgba(232,228,255,0.2)!important}
         *{box-sizing:border-box}
         @media(max-width:768px){
