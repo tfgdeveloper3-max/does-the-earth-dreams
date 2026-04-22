@@ -97,14 +97,13 @@ export default function Hero() {
             <p
               className="reveal"
               style={{
-                fontSize: '1.1rem', lineHeight: 1.7,
+                fontSize: '0.9rem', lineHeight: 1.7,
                 marginBottom: '2rem', maxWidth: '480px',
                 color: 'rgba(232,228,255,0.8)',
                 fontFamily: '"Nunito", sans-serif',
               }}
             >
-              A playful, poetic journey that invites young readers to imagine our planet as a
-              dreaming, feeling being — from sunbathing with the sun to dancing with the moon.
+              What if the Earth could dream—just like us? In this beautifully imaginative children’s book, young readers are invited to explore a world where the Earth dances with the moon, chooses her clouds, and even weathers her own storms. Does the Earth Dream? is a lyrical, read-aloud experience that sparks curiosity, laughter, and wonder—perfect for bedtime, classrooms, and little minds full of big questions.
             </p>
 
             <div className="reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
