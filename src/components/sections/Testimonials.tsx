@@ -46,8 +46,7 @@ export default function Testimonials() {
             What Our Reader Says
           </h2>
           <p className="reveal font-body text-base max-w-xl mx-auto" style={{ color: 'rgba(232,228,255,0.65)' }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-            the industry's standard dummy text ever since the 1500s
+            
           </p>
         </div>
 

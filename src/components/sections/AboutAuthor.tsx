@@ -41,19 +41,16 @@ export default function AboutAuthor() {
           <div className="reveal flex justify-center">
             <div className="relative">
               {/* Outer orbit rings */}
-              <div className="absolute -inset-10 rounded-full border-2 border-dashed border-violet-200/30 animate-spin-slow" />
-              <div className="absolute -inset-16 rounded-full border border-violet-100/20 animate-spin-slow" style={{ animationDuration: '20s', animationDirection: 'reverse' }} />
+              <div className="absolute -inset-10 " />
+              <div className="absolute -inset-16 " style={{ animationDuration: '20s', animationDirection: 'reverse' }} />
 
               {/* Main circle */}
-              <div className="w-56 h-56 rounded-full overflow-hidden flex items-center justify-center"
-                style={{
-                  boxShadow: '0 0 50px rgba(107,93,211,0.25), 0 20px 60px rgba(0,0,0,0.1)',
-                  border: '4px solid white',
-                }}>
+              <div className="w-100 h-100 overflow-hidden flex items-center justify-center"
+               >
                 <img
-                  src="/images/Tim-Star.jpg"
+                  src="/images/About-Author.png"
                   alt="Tim Star"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
                 />
               </div>
               {/* Floating deco items around avatar */}
@@ -72,12 +69,12 @@ export default function AboutAuthor() {
           <div>
             <div className="reveal flex items-center gap-2 mb-3">
               <BsLightbulbFill className="text-yellow-500 text-base" />
-              <span className="font-body font-bold text-violet-600 text-sm uppercase tracking-wider">About Author</span>
+              <span className="font-body font-bold text-violet-600 text-sm uppercase tracking-wider">Author </span>
             </div>
 
             <h2 className="reveal font-display font-bold text-3xl md:text-4xl text-gray-900 leading-tight mb-2">
-              Discover Our Mission for<br />
-              <span style={{ color: 'var(--violet)' }}>Studykids Academy</span>
+              About the Author - 
+              <span style={{ color: 'var(--violet)' }}> Tim Star</span>
             </h2>
 
             <p className="reveal font-body text-gray-600 text-base leading-relaxed mb-6">

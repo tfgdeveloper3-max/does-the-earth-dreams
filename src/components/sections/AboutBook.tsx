@@ -39,20 +39,15 @@ export default function AboutBook() {
 
             <h2 className="reveal font-display font-bold leading-tight mb-5 text-white"
               style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>
-              Discover Our Mission for<br />
-              <span style={{ color: 'var(--yellow)' }}>Studykids Academy</span>
+              Does the
+              <span style={{ color: 'var(--yellow)' }}> Earth Dream?</span>
             </h2>
 
-            <p className="reveal font-body text-base leading-relaxed mb-6"
+            <p className="reveal text-[16px] text-base leading-relaxed mb-6"
               style={{ color: 'rgba(232,228,255,0.75)' }}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-              specimen book. It has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was popularised in
-              the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-              and more recently with desktop publishing software like Aldus PageMaker
-              including versions of Lorem Ipsum.
+              Does the Earth Dream? is a playful and poetic children’s picture book that imagines our planet as a living, dreaming being. Through rhythmic storytelling and whimsical imagery, the Earth comes to life—sunbathing in golden light, dancing with the moon, choosing clouds, and even experiencing the occasional storm or silly nightmare. <br/>
+              Blending gentle humor with meaningful themes, the story introduces children to ideas about nature, emotions, and imagination in a way that feels both fun and profound. It’s a book that not only entertains but also encourages empathy, curiosity, and a deeper appreciation for the world around us.
+              Perfect for bedtime reading or classroom storytelling, this is a tale children will want to hear again and again.
             </p>
 
             <a href="#newsletter" className="reveal btn-primary gap-2">
@@ -95,10 +90,10 @@ export default function AboutBook() {
 
                 {/* Floating stars */}
                 {[
-                  { top: '8%',   right: '-10%', delay: '0s',   size: 'text-lg' },
-                  { top: '25%',  left:  '-9%',  delay: '0.7s', size: 'text-sm' },
-                  { bottom:'18%',right: '-7%',  delay: '1.3s', size: 'text-xs' },
-                  { bottom:'8%', left:  '-6%',  delay: '0.4s', size: 'text-base' },
+                  { top: '8%', right: '-10%', delay: '0s', size: 'text-lg' },
+                  { top: '25%', left: '-9%', delay: '0.7s', size: 'text-sm' },
+                  { bottom: '18%', right: '-7%', delay: '1.3s', size: 'text-xs' },
+                  { bottom: '8%', left: '-6%', delay: '0.4s', size: 'text-base' },
                 ].map((s, i) => (
                   <FaStar key={i}
                     className={`absolute text-yellow-300 ${s.size} animate-pulse`}
@@ -118,7 +113,7 @@ export default function AboutBook() {
       {/* Wave bottom to white */}
       <div className="wave-bottom">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: '80px' }}>
-          <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
+          <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,20 1440,40 L1440,80 L0,80 Z" fill="white" />
         </svg>
       </div>
     </section>

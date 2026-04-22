@@ -40,10 +40,9 @@ export default function VideoTrailer() {
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <p className="reveal font-body font-bold text-violet-600 text-sm uppercase tracking-widest mb-2">Watch Now</p>
-        <h2 className="reveal font-display font-bold text-3xl md:text-4xl text-gray-900 mb-3">Video Trailer</h2>
+        <h2 className="reveal font-display font-bold text-3xl md:text-4xl text-gray-900 mb-3">Step Into The Dream</h2>
         <p className="reveal font-body text-gray-500 text-base mb-10 max-w-xl mx-auto">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-          the industry's standard dummy text ever since the 1500s
+          Watch the magic unfold as Does the Earth Dream? comes to life. This enchanting story invites children to imagine a world where the Earth dreams, feels, and dances through the universe. Press play and let the journey begin.
         </p>
 
         {/* Video player */}

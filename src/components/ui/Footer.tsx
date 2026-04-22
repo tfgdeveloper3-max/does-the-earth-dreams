@@ -6,9 +6,9 @@ import { BsStarFill } from 'react-icons/bs'
 const links = ['Home', 'About Me', 'My Book', 'Blog', 'Contact ME']
 const socials = [
   { icon: FaFacebookF, color: '#6b5dd3' },
-  { icon: FaTwitter,   color: '#9b8fe8' },
+  { icon: FaTwitter, color: '#9b8fe8' },
   { icon: FaInstagram, color: '#c084b0' },
-  { icon: FaYoutube,   color: '#d4a0c8' },
+  { icon: FaYoutube, color: '#d4a0c8' },
 ]
 
 export default function Footer() {
@@ -35,8 +35,7 @@ export default function Footer() {
         {/* Tagline */}
         <p className="font-body text-base leading-relaxed mb-8 max-w-lg mx-auto"
           style={{ color: 'rgba(232,228,255,0.6)' }}>
-          More wonderful books are on the way to keep your little readers engaged, inspired, and excited for
-          every new adventure. Stay Tuned!
+          Does the Earth Dream? is a poetic children’s book that inspires imagination, emotional connection, and a love for our planet
         </p>
 
         {/* Nav links */}
@@ -70,11 +69,11 @@ export default function Footer() {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
           style={{ borderTop: '1px solid rgba(107,93,211,0.15)' }}>
           <p className="font-body text-xs" style={{ color: 'rgba(155,143,232,0.4)' }}>
-            Copyright 2026 © | Powered by Tim Star
+            Copyright 2026 © | Powered by 
           </p>
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1.5 font-body text-xs" style={{ color: 'rgba(155,143,232,0.4)' }}>
-              Made By Ubaidullah
+              
               <FaHeart className="text-dream-pink animate-pulse"
                 style={{ filter: 'drop-shadow(0 0 4px rgba(192,132,176,0.7))', animationDuration: '1.5s' }} />
             </p>
